@@ -37,7 +37,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RoleSelectionControllers">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserInfoController">
    <top>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
    </top>
@@ -56,17 +56,17 @@
             </Label>
             <ImageView fx:id="imageBig" fitHeight="100.0" fitWidth="107.0" pickOnBounds="true">
                <image>
-                  <Image url="@unknown.jpg" />
+                  <Image url="@../images/unknown.jpg" />
                </image></ImageView>
             <HBox prefHeight="28.0" prefWidth="200.0" style="-fx-alignment: center; -fx-spacing: 5px;">
                <children>
-                  <Button fx:id="browseButton" mnemonicParsing="false" onAction="#browseButtonClicked" prefWidth="152.0" style="-fx-pref-width: 60px; -fx-pref-height: 30px; -fx-border-width: 2.5px;" stylesheets="@buttonStyles.css" text="Browse" />
+                  <Button fx:id="browseButton" mnemonicParsing="false" onAction="#browseButtonClicked" prefWidth="152.0" style="-fx-pref-width: 60px; -fx-pref-height: 30px; -fx-border-width: 2.5px;" stylesheets="@../stylesheets/buttonStyles.css" text="Browse" />
                   <Label text="OR" />
-                  <Button fx:id="fromLinkButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#fromLinkButtonClicked" prefHeight="28.0" prefWidth="86.0" style="-fx-pref-width: 80px; -fx-pref-height: 30px; -fx-border-width: 2.5px;" stylesheets="@buttonStyles.css" text="From Link" />
+                  <Button fx:id="fromLinkButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#fromLinkButtonClicked" prefHeight="28.0" prefWidth="86.0" style="-fx-pref-width: 80px; -fx-pref-height: 30px; -fx-border-width: 2.5px;" stylesheets="@../stylesheets/buttonStyles.css" text="From Link" />
                </children>
             </HBox>
             <Pane disable="true" prefHeight="12.0" prefWidth="200.0" style="-fx-pref-width: 0; -fx-opacity: 0;" styleClass="-fx-pref-width: 0;" visible="false" />
-            <Button mnemonicParsing="false" onAction="#goButtonClicked" prefWidth="152.0" style="-fx-padding: 0; -fx-pref-width: 60px; -fx-pref-height: 30px; -fx-border-width: 2.5px; -fx-background-color: #FFF3B2;" stylesheets="@buttonStyles.css" text="GO" />
+            <Button mnemonicParsing="false" onAction="#goButtonClicked" prefWidth="152.0" style="-fx-padding: 0; -fx-pref-width: 60px; -fx-pref-height: 30px; -fx-border-width: 2.5px; -fx-background-color: #FFF3B2;" stylesheets="@../stylesheets/buttonStyles.css" text="GO" />
          </children>
       </VBox>
    </center>

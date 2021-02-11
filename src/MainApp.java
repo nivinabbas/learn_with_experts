@@ -3,20 +3,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class FX extends Application {
+public class MainApp extends Application {
     public static Stage primaryStage;
 
     @Override
     public void init() throws Exception {
         super.init();
-        System.out.println("first");
     }
 
     @Override
     public void start(Stage window) throws Exception {
         primaryStage = window;
 
-        window.setTitle("ExpertHelp");
+        window.setTitle("Learn With Experts");
         window.setWidth(400);
         window.setHeight(500);
 
@@ -25,7 +24,7 @@ public class FX extends Application {
 
 
 
-        Scene roleSelection = new Scene(FXMLLoader.load(getClass().getResource("RoleSelection.fxml")));
+        Scene roleSelection = new Scene(FXMLLoader.load(getClass().getResource("FXML/RoleSelection.fxml")));
         window.setScene(roleSelection);
         window.show();
     }

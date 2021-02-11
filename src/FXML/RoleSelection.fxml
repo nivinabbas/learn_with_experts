@@ -37,20 +37,41 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RoleSelectionControllers">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RoleSelectionController">
+   <top>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
+   </top>
    <center>
-      <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="240.0" style="-fx-alignment: center; -fx-background-color: F0F0F0; -fx-spacing: 10; -fx-border-color: #CCCCCC; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
+      <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="240.0" style="-fx-alignment: center; -fx-background-color: F0F0F0; -fx-spacing: 25; -fx-border-color: #CCCCCC; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="TOP_LEFT" text="Coose an Expert in {}">
+            <Label prefHeight="26.0" prefWidth="175.0" text="Select your role">
                <font>
-                  <Font size="20.0" />
+                  <Font size="22.0" />
+               </font></Label>
+            <Button id="expertButton" fx:id="expertButton" mnemonicParsing="false" onAction="#expertButtonClicked" prefWidth="152.0" style="-fx-padding: 0; -fx-pref-width: 130px; -fx-pref-height: 60px; -fx-border-width: 2.5px; -fx-background-color: #FFF3B2;" stylesheets="@../stylesheets/buttonStyles.css" text="Client.User">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Expert.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Label prefHeight="26.0" prefWidth="42.0" text="OR">
+               <font>
+                  <Font size="22.0" />
                </font>
             </Label>
-            <ScrollPane prefHeight="321.0" prefWidth="270.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="279.0" prefWidth="222.0" />
-              </content>
-            </ScrollPane>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#noviceButtonClicked" prefHeight="18.0" prefWidth="194.0" style="-fx-padding: 0; -fx-pref-width: 130; -fx-pref-height: 60px; -fx-background-color: #FFF3B2; -fx-border-width: 2.5px;" stylesheets="@../stylesheets/buttonStyles.css" text="Novice" VBox.vgrow="NEVER">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Novice.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </VBox>
    </center>
@@ -63,29 +84,4 @@
    <bottom>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
    </bottom>
-   <top>
-      <VBox prefHeight="80.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="364.0" style="-fx-spacing: 10;">
-               <children>
-                  <ImageView fx:id="imageMedium" fitHeight="60.0" fitWidth="65.0" pickOnBounds="true" />
-                  <VBox prefHeight="80.0" prefWidth="224.0" style="-fx-spacing: 4;">
-                     <children>
-                        <Label fx:id="nameLabel" text="Name is shown here">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="roleLabel" style="-fx-border-color: orange; -fx-padding: 2px;" text="Novice/Expert" textFill="#ffca00">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </top>
 </BorderPane>

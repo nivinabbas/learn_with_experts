@@ -37,20 +37,57 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RoleSelectionControllers">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FieldsListController">
    <center>
       <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="240.0" style="-fx-alignment: center; -fx-background-color: F0F0F0; -fx-spacing: 10; -fx-border-color: #CCCCCC; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="TOP_LEFT" text="Coose an Expert in {}">
+            <Label text="Choose a field">
                <font>
-                  <Font size="20.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
-            <ScrollPane prefHeight="321.0" prefWidth="270.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="279.0" prefWidth="222.0" />
-              </content>
-            </ScrollPane>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 20;">
+               <children>
+                  <Button fx:id="javaButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#javaButtonClicked" prefHeight="102.0" prefWidth="82.0" stylesheets="@../stylesheets/buttonStyles.css" text="Java" textOverrun="WORD_ELLIPSIS">
+                     <graphic>
+                        <ImageView fitHeight="68.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/java.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="pythonButton" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#pythonButtonClicked" prefHeight="102.0" prefWidth="82.0" stylesheets="@../stylesheets/buttonStyles.css" text="Python" textOverrun="WORD_ELLIPSIS">
+                     <graphic>
+                        <ImageView fitHeight="68.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/python.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 20;">
+               <children>
+                  <Button fx:id="jsButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#jsButtonClicked" prefHeight="102.0" prefWidth="82.0" stylesheets="@../stylesheets/buttonStyles.css" text="Javascript" textOverrun="WORD_ELLIPSIS">
+                     <graphic>
+                        <ImageView fitHeight="68.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/js.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="csButton" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#csButtonClicked" prefHeight="102.0" prefWidth="82.0" stylesheets="@../stylesheets/buttonStyles.css" text="C#" textOverrun="WORD_ELLIPSIS">
+                     <graphic>
+                        <ImageView fitHeight="68.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/csharp.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></HBox>
          </children>
       </VBox>
    </center>
@@ -76,7 +113,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Label fx:id="roleLabel" style="-fx-border-color: orange; -fx-padding: 2px;" text="Novice/Expert" textFill="#ffca00">
+                        <Label fx:id="roleLabel" style="-fx-border-color: orange; -fx-padding: 2px;" text="Novice/Client.User" textFill="#ffca00">
                            <font>
                               <Font size="14.0" />
                            </font>
