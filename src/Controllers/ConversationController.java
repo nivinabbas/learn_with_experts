@@ -36,7 +36,7 @@ public class ConversationController extends GeneralController {
     }
 
     public static void addMessage(String text) {
-        Button messageButton = new Button(text);
+        Label messageButton = new Label(text);
         messageButton.setPrefHeight(45);
         singelton.messagesVBox.getChildren().add(messageButton);
         singelton.messagesVBox.setPrefHeight(singelton.messagesVBox.getPrefHeight() + 50);

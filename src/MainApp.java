@@ -19,11 +19,11 @@ public class MainApp extends Application {
         primaryStage = window;
 
         window.setTitle("Learn With Experts");
-        window.setWidth(500);
-        window.setHeight(450);
-
+        window.setWidth(400);
+        window.setHeight(600);
         window.setX(200);
         window.setY(100);
+
 
         Scene roleSelection = new Scene(FXMLLoader.load(getClass().getResource("FXML/RoleSelection.fxml")));
 

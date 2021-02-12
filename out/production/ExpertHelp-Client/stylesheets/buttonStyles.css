@@ -12,3 +12,8 @@
 .button:pressed {
     -fx-background-color: #FC8621 !important;
 }
+
+.root{
+-fx-background-image:url('cover.jpg');
+-fx-background-size:cover;
+}

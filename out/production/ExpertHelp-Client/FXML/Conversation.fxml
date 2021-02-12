@@ -1,43 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="450.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConversationController">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" stylesheets="@../stylesheets/imageBackground.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConversationController">
    <children>
-      <Pane layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0">
+      <Pane layoutX="16.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="104.0" prefWidth="386.0">
          <children>
-            <VBox prefHeight="350.0" prefWidth="400.0">
+            <VBox layoutX="31.0" layoutY="41.0" prefHeight="462.0" prefWidth="273.0">
                <children>
-                  <HBox prefHeight="72.0" prefWidth="400.0" style="-fx-spacing: 8;">
+                  <HBox prefHeight="58.0" prefWidth="345.0" style="-fx-spacing: 8;">
                      <children>
-                        <ImageView fx:id="contactImage" fitHeight="49.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="contactImage" fitHeight="50.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/user%20(4).png" />
                            </image>
                         </ImageView>
                         <VBox prefHeight="49.0" prefWidth="325.0">
                            <children>
-                              <Label fx:id="contactName" prefHeight="31.0" prefWidth="169.0" text="Contact name" />
-                              <Label fx:id="contactRoleField" text="Contact role and field" />
+                              <Label fx:id="contactName" prefHeight="36.0" prefWidth="169.0" text="Contact name">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="contactRoleField" text="Contact role and field">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="14.0" />
+                                 </font></Label>
                            </children>
                         </VBox>
-                     </children></HBox>
-                  <ScrollPane prefHeight="322.0" prefWidth="400.0">
+                     </children>
+                  </HBox>
+                  <ScrollPane prefHeight="354.0" prefWidth="273.0">
                      <content>
-                        <VBox fx:id="messagesVBox" prefHeight="9.0" prefWidth="398.0" />
-                     </content></ScrollPane>
+                        <VBox fx:id="messagesVBox" prefHeight="13.0" prefWidth="271.0" />
+                     </content>
+                     <VBox.margin>
+                        <Insets top="2.0" />
+                     </VBox.margin>
+                  </ScrollPane>
                   <HBox prefHeight="37.0" prefWidth="400.0">
                      <children>
-                        <TextField fx:id="messageTextField" onKeyReleased="#onTextFieldKeyPressed" prefHeight="37.0" prefWidth="412.0" />
+                        <TextField fx:id="messageTextField" onKeyReleased="#onTextFieldKeyPressed" prefHeight="59.0" prefWidth="281.0" />
                         <Button fx:id="sendButton" mnemonicParsing="false" onAction="#onSendButtonClicked" prefHeight="37.0" prefWidth="149.0" text="Send" />
                      </children>
                   </HBox>
                </children>
             </VBox>
-         </children>
-      </Pane>
+         </children></Pane>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="34.0" prefWidth="49.0">
          <graphic>
             <ImageView fitHeight="54.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">

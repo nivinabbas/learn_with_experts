@@ -38,39 +38,39 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ExpertsListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" stylesheets="@../stylesheets/imageBackground.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ExpertsListController">
    <children>
+      <VBox fx:id="onlineUsersVBox" alignment="CENTER" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="400.0" style="-fx-alignment: center;" />
       <Button layoutX="11.0" layoutY="1.0" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="27.0" prefWidth="45.0">
          <graphic>
             <ImageView fitHeight="19.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/left-arrow.png" />
-               </image></ImageView>
-         </graphic></Button>
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
       <Group layoutX="285.0" layoutY="12.0" />
       <HBox layoutX="276.0" layoutY="16.0" prefHeight="61.0" prefWidth="210.0">
          <children>
-            <ImageView fx:id="userImage" fitHeight="60.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/user%20(4).png" />
-               </image>
-            </ImageView>
             <HBox prefHeight="61.0" prefWidth="16.0" />
-            <VBox prefHeight="100.0" prefWidth="114.0">
-               <children>
-                  <Label fx:id="nameLabel" prefHeight="27.0" prefWidth="117.0" text="Username access">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font></Label>
-                  <Label fx:id="userRoleLabel" prefHeight="33.0" prefWidth="109.0" style="-fx-border-color: #c4c4c4; -fx-border-width: 2;" text="Type of User">
-                     <font>
-                        <Font size="14.0" />
-                     </font></Label>
-               </children>
-            </VBox>
          </children>
       </HBox>
-      <VBox fx:id="onlineUsersVBox" alignment="CENTER" layoutY="74.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="500.0" style="-fx-alignment: center;" />
+      <ImageView fx:id="userImage" fitHeight="60.0" fitWidth="54.0" layoutX="157.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/user%20(4).png" />
+         </image>
+      </ImageView>
+      <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="134.0" layoutY="74.0" prefHeight="27.0" prefWidth="117.0" text="Username access">
+         <font>
+            <Font name="Times New Roman Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="userRoleLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="138.0" layoutY="95.0" prefHeight="33.0" prefWidth="109.0" text="Type of User">
+         <font>
+            <Font name="Times New Roman Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
   
 

@@ -86,8 +86,9 @@ public class ExpertsListController extends GeneralController {
 
                     img.setFitHeight(28);
                     img.setFitWidth(35);
+                    onlineUserButton.setStyle("-fx-margin: 166px");
                     img.setStyle("-fx-padding: 8px 16px");
-                    onlineUserButton.setStyle("-fx-padding:8px 16px;");
+                    onlineUserButton.setStyle("-fx-padding:30px 16px;");
                     onlineUserButton.setMinWidth(168);
                     onlineUserButton.setText(onlineUser.getName());
                     onlineUserButton.setGraphic(img);
