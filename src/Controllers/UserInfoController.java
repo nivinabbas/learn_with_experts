@@ -29,10 +29,14 @@ public class UserInfoController extends GeneralController {
     private void browseButtonClicked(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         File selectedFile = fileChooser.showOpenDialog(getStageFromEvent(event));
+
         if (selectedFile != null) {
             UserProberties.image = new Image(selectedFile.toURI().toString());
             imageBig.setImage(UserProberties.image);
         }
+
+
+
     }
 
     @FXML

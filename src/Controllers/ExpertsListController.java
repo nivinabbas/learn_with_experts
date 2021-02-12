@@ -3,6 +3,7 @@ package Controllers;
 import Client.ClientNetwork;
 import Client.User;
 import Client.UserProberties;
+import Client.UserService;
 import Helpers.CustomException;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -46,80 +47,59 @@ public class ExpertsListController extends GeneralController {
         nameLabel.setText(UserProberties.name);
         roleLabel.setText(UserProberties.role);
 
-        Service<String> ser = new Service<String>() {
-            public boolean canRestard = true;
-            @Override
-            protected Task createTask() {
-                return new Task<String>() {
-                    @Override
-                    protected String call() throws InterruptedException {
-                        System.out.println("waiting a message from server......");
-                        String s = ClientNetwork.readFromServer();
-                        return s;
-                    }
-                };
-            }
-        };
+        Service<String> ser = new UserService();
 
         ConversationController.previousService = ser;
 
         ser.setOnSucceeded((WorkerStateEvent event) -> {
             String s = ser.getValue();
-
             System.out.println("received message!! " + s);
-
             String[] splittedString = s.split(";FayezIbrahimNivin;");
 
-            if (splittedString[0].equals("connect")) {
-                System.out.println("Connect Request");
-                User contact = new User(Integer.parseInt(splittedString[1]), splittedString[2], splittedString[3], splittedString[4], splittedString[5]);
-                startConversationWith(contact);
+            if (s.startsWith("message")) {
+                System.out.println("received message");
+                String[] splittedS = s.split(";");
+                int fromId = Integer.parseInt(splittedS[1]);
+                User from = null;
+
+                for (User u:UserProberties.onlineUsers) {
+                    if (u.getId() == fromId)
+                        from = u;
+                }
+
+                if (from != null)
+                    UserProberties.addMessage(from, splittedS[2]);
             } else if (splittedString[0].equals("online")) {
                 String userInfo = ClientNetwork.readFromServer();
 
                 String[] splittedUserInfo = userInfo.split(";FayezIbrahimNivin;");
-
                 User onlineUser = new User(Integer.parseInt(splittedUserInfo[0]), splittedUserInfo[1], splittedUserInfo[2], splittedUserInfo[3], "none");
                 UserProberties.onlineUsers.add(onlineUser);
+                String oppositeRole = UserProberties.role == "Novice" ? "Expert" : "Novice";
 
-                var vBoxChilds = expertsVBox.getChildren();
+                if (onlineUser.getField().equals(UserProberties.field) && onlineUser.getRole().equals(oppositeRole)) {
+                    var vBoxChilds = expertsVBox.getChildren();
 
-                Button onlineUserButton = new Button(onlineUser.getName());
-                onlineUserButton.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        System.out.println("connecting to user " + onlineUser.getName());
+                    Button onlineUserButton = new Button(onlineUser.getName());
 
-                        System.out.println("Sending to server a connection request");
-                        ClientNetwork.sendToServer("connect;" + onlineUser.getId());
-                        System.out.println("request send, waiting for response");
-
-                        String response = "ok";
-                        if (response.equals("ok")) {
+                    onlineUserButton.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
                             try {
-                                System.out.println("server responded with" + response);
                                 UserProberties.currentContact = onlineUser;
                                 loadConversation(getStageFromEvent(event));
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            UserProberties.flag1 = false;
-                        } else {
-                            System.out.println("server responded with "+response);
                         }
-                    }
-                });
-                vBoxChilds.add(onlineUserButton);
+                    });
+                    vBoxChilds.add(onlineUserButton);
+                }
             }
 
             System.out.println("reading again.....");
-
-            if (UserProberties.flag1) {
-                ser.restart();
-                UserProberties.flag1 = true;
-            }
+            ser.restart();
         });
-
         ser.start();
 
     }
@@ -137,6 +117,9 @@ public class ExpertsListController extends GeneralController {
 
     private void startConversationWith(User u) {
         UserProberties.currentContact = u;
+
+        System.out.println("you are: " + UserProberties.name + ", id:" + UserProberties.id);
+        System.out.println("you are connecting with " + u.toString());
         loadConversation((Stage) nameLabel.getScene().getWindow());
     }
 }

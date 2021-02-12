@@ -39,15 +39,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ExpertsListController">
    <center>
-      <VBox fx:id="expertsVBox" alignment="TOP_CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="240.0" style="-fx-alignment: center; -fx-background-color: F0F0F0; -fx-spacing: 10; -fx-border-color: #CCCCCC; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="expertListTitle" alignment="TOP_CENTER" prefHeight="21.0" prefWidth="166.0">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
+      <VBox fx:id="expertsVBox" alignment="TOP_CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="240.0" style="-fx-alignment: center; -fx-background-color: F0F0F0; -fx-spacing: 10; -fx-border-color: #CCCCCC; -fx-border-width: 1px;" BorderPane.alignment="CENTER" />
    </center>
    <left>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="80.0" BorderPane.alignment="CENTER" />

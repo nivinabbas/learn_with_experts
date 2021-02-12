@@ -52,7 +52,6 @@
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Button fx:id="leaveButton" mnemonicParsing="false" onAction="#onLeaveButtonClicked" prefHeight="28.0" prefWidth="82.0" text="Leave" />
                </children>
             </HBox>
             <ScrollPane fx:id="scrollPane" prefHeight="288.0" prefWidth="238.0">

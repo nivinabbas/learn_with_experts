@@ -60,8 +60,6 @@ public class ClientNetwork {
                 for (String str : onlineUsersStr.split(";user_seperator;")) {
                     String[] userInfo = str.split(";FayezIbrahimNivin;");
                     User user = new User(Integer.parseInt(userInfo[0]), userInfo[1], userInfo[2], userInfo[3], userInfo[4]);
-
-
                     String oppositeRole = UserProberties.role.equals("Novice") ? "Expert" : "Novice";
 
                     boolean doesExist = UserProberties.onlineUsers.contains(user);
@@ -69,6 +67,7 @@ public class ClientNetwork {
                     boolean isSameField = user.getField().equals(UserProberties.field);
 
                     System.out.println("str: " + str);
+
                     if (!doesExist && isOppositeRoles && isSameField)
                         UserProberties.onlineUsers.add(user);
                 }

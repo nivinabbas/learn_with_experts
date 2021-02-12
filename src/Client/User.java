@@ -52,4 +52,15 @@ public class User {
             return false;
         return ((User) o).getId() == this.id;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "role='" + role + '\'' +
+                ", name='" + name + '\'' +
+                ", image=" + image +
+                ", field='" + field + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

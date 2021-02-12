@@ -13,19 +13,7 @@ import javafx.stage.Stage;
 
 public class RoleSelectionController extends GeneralController {
     @FXML
-    private ImageView imageMedium;
-    @FXML
-    private Label nameLabel;
-    @FXML
-    private Label roleLabel;
-
-    @FXML
     protected void initialize() {
-        if (imageMedium != null) {
-            imageMedium.setImage(UserProberties.image);
-            nameLabel.setText(UserProberties.name);
-            roleLabel.setText(UserProberties.role);
-        }
     }
 
     @FXML
