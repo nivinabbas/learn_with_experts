@@ -9,5 +9,6 @@ public class UserProberties {
     public static String name;
     public static Image image;
     public static String field;
-    public static ArrayList<User> onlineUsers;
+    public static int id;
+    public static ArrayList<User> onlineUsers = new ArrayList<>();
 }

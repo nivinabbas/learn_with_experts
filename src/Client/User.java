@@ -4,16 +4,19 @@ import javafx.scene.image.Image;
 
 
 public class User {
-    private String role;
-    private String name;
+    private final String role;
+    private final String name;
     private Image image;
-    private String field;
+    private final String field;
+    private final int id;
 
-    public User(String name, Image image, String field, String role) {
-        this.role = role;
+    public User(int id, String name, String role, String field, String b64Image) {
+        this.id = id;
         this.name = name;
-        this.image = image;
+        this.role = role;
         this.field = field;
+//        byte[] decodedImage = Base64.getDecoder().decode(b64Image);
+//        this.image = new Image(new ByteArrayInputStream(decodedImage));
     }
 
     public String getName() {
@@ -28,7 +31,25 @@ public class User {
         return role;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String getField() {
         return field;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof User))
+            return false;
+        return ((User) o).getId() == this.id;
     }
 }
