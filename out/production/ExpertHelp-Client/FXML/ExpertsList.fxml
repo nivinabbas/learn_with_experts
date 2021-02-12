@@ -32,47 +32,56 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ExpertsListController">
-   <center>
-      <VBox fx:id="expertsVBox" alignment="TOP_CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="240.0" style="-fx-alignment: center; -fx-background-color: F0F0F0; -fx-spacing: 10; -fx-border-color: #CCCCCC; -fx-border-width: 1px;" BorderPane.alignment="CENTER" />
-   </center>
-   <left>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="80.0" BorderPane.alignment="CENTER" />
-   </left>
-   <right>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="80.0" BorderPane.alignment="CENTER" />
-   </right>
-   <bottom>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
-   </bottom>
-   <top>
-      <VBox prefHeight="80.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ExpertsListController">
+   <children>
+      <Button layoutX="11.0" layoutY="1.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="45.0">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/left-arrow.png" />
+               </image></ImageView>
+         </graphic></Button>
+      <FlowPane layoutX="14.0" layoutY="83.0" prefHeight="267.0" prefWidth="356.0">
          <children>
-            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="364.0" style="-fx-spacing: 10;">
-               <children>
-                  <ImageView fx:id="imageMedium" fitHeight="60.0" fitWidth="65.0" pickOnBounds="true" />
-                  <VBox prefHeight="80.0" prefWidth="224.0" style="-fx-spacing: 4;">
-                     <children>
-                        <Label fx:id="nameLabel" text="Name is shown here">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="roleLabel" style="-fx-border-color: orange; -fx-padding: 2px;" text="Novice/Client.User" textFill="#ffca00">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
+            <Button fx:id="cloneButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" style="-fx-line-spacing: 1;" text="Username">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/user%20(3).png" />
+                     </image></ImageView>
+               </graphic>
+               <FlowPane.margin>
+                  <Insets />
+               </FlowPane.margin>
+            </Button>
          </children>
-      </VBox>
-   </top>
-</BorderPane>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </FlowPane>
+      <Group layoutX="285.0" layoutY="12.0" />
+      <HBox layoutX="240.0" layoutY="16.0" prefHeight="58.0" prefWidth="146.0">
+         <children>
+            <ImageView fitHeight="60.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user%20(4).png" />
+               </image>
+            </ImageView>
+            <VBox prefHeight="100.0" prefWidth="114.0">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="92.0" text="Username access" />
+                  <Label prefHeight="33.0" prefWidth="86.0" text="Type of User" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+  
+
+</AnchorPane>

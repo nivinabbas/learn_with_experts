@@ -49,7 +49,7 @@
          </graphic></Button>
       <FlowPane layoutX="14.0" layoutY="83.0" prefHeight="267.0" prefWidth="356.0">
          <children>
-            <Button fx:id="cloneButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" style="-fx-line-spacing: 1;" text="Username">
+            <Button fx:id="cloneButton" mnemonicParsing="false" onAction="#onUserButtonClicked" prefHeight="35.0" prefWidth="115.0" style="-fx-line-spacing: 1;" text="Username">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>

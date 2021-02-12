@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -107,7 +108,7 @@ public class ExpertsListController extends GeneralController {
 
     private void loadConversation(Stage s) {
         try {
-            BorderPane expertsList = FXMLLoader.load(getClass().getResource("../FXML/Conversation.fxml"));
+            AnchorPane expertsList = FXMLLoader.load(getClass().getResource("../FXML/Conversation.fxml"));
             s.getScene().setRoot(expertsList);
         } catch (Exception e) {
             System.out.println("Error loading conversation");
@@ -115,11 +116,15 @@ public class ExpertsListController extends GeneralController {
         }
     }
 
-    private void startConversationWith(User u) {
+    private void startConversationWith(User u){
+        try{
         UserProberties.currentContact = u;
 
         System.out.println("you are: " + UserProberties.name + ", id:" + UserProberties.id);
         System.out.println("you are connecting with " + u.toString());
-        loadConversation((Stage) nameLabel.getScene().getWindow());
+        load("Conversation",(Stage) nameLabel.getScene().getWindow());}
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

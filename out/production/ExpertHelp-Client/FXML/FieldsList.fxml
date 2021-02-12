@@ -6,13 +6,27 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="389.0" prefWidth="232.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FieldsListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FieldsListController">
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="300.0" style="-fx-background-color: #EBEBEB;">
+      <Pane layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" style="-fx-background-color: #EBEBEB;">
          <children>
-            <Label layoutX="14.0" layoutY="37.0" style="-fx-font: 5;" text="Select any programming field" />
-            <Label layoutX="20.0" layoutY="64.0" text="User Title" />
-            <FlowPane layoutX="42.0" layoutY="97.0" prefHeight="196.0" prefWidth="216.0">
+            <HBox layoutX="254.0" layoutY="1.0" prefHeight="58.0" prefWidth="146.0">
+               <children>
+                  <ImageView fitHeight="60.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/user%20(4).png" />
+                     </image>
+                  </ImageView>
+                  <VBox prefHeight="100.0" prefWidth="114.0">
+                     <children>
+                        <Label prefHeight="27.0" prefWidth="92.0" text="Username access" />
+                        <Label prefHeight="34.0" prefWidth="63.0" text="Type of User" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label layoutX="110.0" layoutY="79.0" text="Select any programming field" />
+            <FlowPane layoutX="26.0" layoutY="97.0" prefHeight="212.0" prefWidth="347.0">
                <children>
                   <Button maxHeight="90.0" maxWidth="90.0" minHeight="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#onJavaButtonClicked" prefHeight="90.0" prefWidth="90.0">
                      <graphic>
@@ -68,7 +82,6 @@
                   </Button>
                </children>
             </FlowPane>
-            <Label layoutX="16.0" layoutY="357.0" text="Learn With Experts !" textFill="#e14b4b" />
             <Button layoutX="14.0" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="27.0" prefWidth="45.0">
                <graphic>
                   <ImageView fitHeight="19.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -77,6 +90,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
+            <Label layoutX="78.0" layoutY="318.0" text="Learn With Experts !" textFill="#e14b4b" />
          </children>
       </Pane>
    </children>
