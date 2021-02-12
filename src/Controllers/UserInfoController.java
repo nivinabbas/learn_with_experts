@@ -16,38 +16,41 @@ import java.util.Optional;
 
 public class UserInfoController extends GeneralController {
     @FXML
-    private ImageView imageBig;
+    private ImageView image;
     @FXML
-    private TextField nameInput;
+    private TextField nameTextField;
+
 
     @FXML
     protected void initialize() {
-        UserProberties.image = imageBig.getImage();
+        UserProberties.image = image.getImage();
     }
 
     @FXML
-    private void browseButtonClicked(ActionEvent event) {
+    private void onBrowseButtonClicked(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         File selectedFile = fileChooser.showOpenDialog(getStageFromEvent(event));
 
         if (selectedFile != null) {
             UserProberties.image = new Image(selectedFile.toURI().toString());
-            imageBig.setImage(UserProberties.image);
+            image.setImage(UserProberties.image);
         }
-
-
-
     }
 
     @FXML
-    private void goButtonClicked(ActionEvent event) throws Exception {
-        UserProberties.name = nameInput.getText();
+    private void onGoButtonClicked(ActionEvent event) throws Exception {
+        UserProberties.name = nameTextField.getText();
         Stage s = getStageFromEvent(event);
-        loadFieldsList(s);
+        load("FieldsList", s);
     }
 
     @FXML
-    private void fromLinkButtonClicked(ActionEvent event) {
+    private void onBackButtonClicked(ActionEvent event) throws Exception {
+
+    }
+
+    @FXML
+    private void onLinkButtonClicked(ActionEvent event) {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Image from link");
         dialog.setHeaderText("Get image from link");
@@ -57,10 +60,5 @@ public class UserInfoController extends GeneralController {
         if (link.isPresent()) {
             System.out.println(link.get());
         }
-    }
-
-    private void loadFieldsList(Stage s) throws Exception {
-        BorderPane fieldsList = FXMLLoader.load(getClass().getResource("../FXML/FieldsList.fxml"));
-        s.getScene().setRoot(fieldsList);
     }
 }

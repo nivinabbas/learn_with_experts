@@ -38,49 +38,73 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ExpertsListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML2.FieldsLists">
    <children>
+      <Group layoutX="283.0" layoutY="10.0">
+         <children>
+            <Label layoutX="5.0" layoutY="1.0" prefHeight="27.0" prefWidth="103.0" text="Username access" />
+            <Label layoutX="14.0" layoutY="25.0" prefHeight="31.0" prefWidth="99.0" text="Type of User" />
+         </children>
+      </Group>
       <Button layoutX="11.0" layoutY="1.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="45.0">
          <graphic>
             <ImageView fitHeight="19.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/left-arrow.png" />
-               </image></ImageView>
+                  <Image url="@../../../../Downloads/left-arrow.png" />
+               </image>
+            </ImageView>
          </graphic></Button>
-      <FlowPane layoutX="14.0" layoutY="83.0" prefHeight="267.0" prefWidth="356.0">
+      <FlowPane layoutX="14.0" layoutY="96.0" prefHeight="254.0" prefWidth="356.0">
          <children>
-            <Button fx:id="cloneButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" style="-fx-line-spacing: 1;" text="Username">
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" style="-fx-line-spacing: 1;" text="Username">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/user%20(3).png" />
-                     </image></ImageView>
+                        <Image url="@../../../../Downloads/user%20(3).png" />
+                     </image>
+                  </ImageView>
                </graphic>
                <FlowPane.margin>
                   <Insets />
                </FlowPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" text="Username">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Downloads/user%20(3).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" text="Username">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Downloads/user%20(3).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" text="Username">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Downloads/user%20(3).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </FlowPane>
-      <Group layoutX="285.0" layoutY="12.0" />
-      <HBox layoutX="240.0" layoutY="16.0" prefHeight="58.0" prefWidth="146.0">
-         <children>
-            <ImageView fitHeight="60.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/user%20(4).png" />
-               </image>
-            </ImageView>
-            <VBox prefHeight="100.0" prefWidth="114.0">
-               <children>
-                  <Label prefHeight="27.0" prefWidth="92.0" text="Username access" />
-                  <Label prefHeight="33.0" prefWidth="86.0" text="Type of User" />
-               </children>
-            </VBox>
-         </children>
-      </HBox>
+      <ImageView fitHeight="62.0" fitWidth="134.0" layoutX="221.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/user%20(4).png" />
+         </image>
+      </ImageView>
    </children>
   
 

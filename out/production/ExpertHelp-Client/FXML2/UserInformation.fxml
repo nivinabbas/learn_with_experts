@@ -10,45 +10,54 @@
       <VBox layoutX="239.0" layoutY="79.0" prefHeight="200.0" prefWidth="0.0" />
       <Group layoutX="14.0" layoutY="23.0">
          <children>
-            <TextField layoutY="29.0" />
-            <Group>
-               <children>
-                  <Label text="Enter your name:" />
-                  <Label layoutX="89.0" text="*" textFill="#da0303" />
-               </children>
-            </Group>
+            <Group />
          </children>
       </Group>
-      <Group layoutX="14.0" layoutY="88.0">
-         <children>
-            <Label text="Select image:" />
-            <ImageView fitHeight="80.0" fitWidth="131.0" layoutX="54.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+      <Group layoutX="14.0" layoutY="88.0" />
+      <Group layoutX="24.0" layoutY="215.0" />
+      <Group layoutX="138.0" layoutY="215.0" />
+    <Button layoutX="93.0" layoutY="368.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: #C5F8CB;" text="Go" />
+    <Button layoutX="14.0" layoutY="9.0" minWidth="33.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="45.0">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Downloads/user%20(4).png" />
+                  <Image url="@../../../../Downloads/left-arrow.png" />
                </image>
             </ImageView>
-         </children>
-      </Group>
-      <Group layoutX="24.0" layoutY="215.0">
+         </graphic>
+      </Button>
+      <Group layoutX="22.0" layoutY="315.0">
          <children>
           <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="    Browse" />
-            <ImageView fitHeight="27.0" fitWidth="18.0" layoutX="9.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="27.0" fitWidth="18.0" layoutX="6.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Downloads/browsing.png" />
                </image>
             </ImageView>
          </children>
       </Group>
-      <Group layoutX="138.0" layoutY="215.0">
+      <Group layoutX="177.0" layoutY="315.0">
          <children>
           <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="89.0" text="Link" />
-            <ImageView fitHeight="27.0" fitWidth="18.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="27.0" fitWidth="18.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Downloads/link.png" />
                </image>
             </ImageView>
          </children>
       </Group>
-    <Button layoutX="75.0" layoutY="258.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: #C5F8CB;" text="Go" />
+      <ImageView fitHeight="80.0" fitWidth="131.0" layoutX="98.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/user%20(4).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="26.0" layoutY="158.0" text="Select image:" />
+      <TextField layoutX="20.0" layoutY="102.0" />
+      <Group layoutX="26.0" layoutY="63.0">
+         <children>
+            <Label layoutY="8.0" text="Enter your name:" />
+            <Label layoutX="90.0" text="*" textFill="#da0303" />
+         </children>
+      </Group>
    </children>
 </AnchorPane>

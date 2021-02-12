@@ -11,47 +11,36 @@ import javafx.stage.Stage;
 
 public class FieldsListController extends GeneralController {
     @FXML
-    private ImageView imageMedium;
-    @FXML
-    private Label nameLabel;
-    @FXML
-    private Label roleLabel;
-
-    @FXML
     protected void initialize() {
-            imageMedium.setImage(UserProberties.image);
-            nameLabel.setText(UserProberties.name);
-            roleLabel.setText(UserProberties.role);
     }
 
     @FXML
-    private void pythonButtonClicked(ActionEvent event) throws Exception {
-        UserProberties.field = "python";
-        Stage s = getStageFromEvent(event);
-        loadExpertsList(s);
+    private void onJavaButtonClicked(ActionEvent event) throws Exception {
+        loadExpertsListWithField("java", getStageFromEvent(event));
     }
 
     @FXML
-    private void javaButtonClicked(ActionEvent event) throws Exception {
-        UserProberties.field = "java";
-        loadExpertsList(getStageFromEvent(event));
+    private void onCsButtonClicked(ActionEvent event) throws Exception {
+        loadExpertsListWithField("cs", getStageFromEvent(event));
     }
 
     @FXML
-    private void jsButtonClicked(ActionEvent event) throws Exception {
-        UserProberties.field = "js";
-        loadExpertsList(getStageFromEvent(event));
+    private void onJsButtonClicked(ActionEvent event) throws Exception {
+        loadExpertsListWithField("js", getStageFromEvent(event));
     }
 
     @FXML
-    private void csButtonClicked(ActionEvent event) throws Exception {
-        UserProberties.field = "cs";
-        loadExpertsList(getStageFromEvent(event));
+    private void onHtmlButtonClicked(ActionEvent event) throws Exception {
+        loadExpertsListWithField("html", getStageFromEvent(event));
     }
 
+    private void loadExpertsListWithField(String field, Stage window)  throws  Exception {
+        UserProberties.field = field;
+        load("ExpertList", window);
+    }
 
-    private void loadExpertsList(Stage s) throws Exception {
-        BorderPane expertsList = FXMLLoader.load(getClass().getResource("../FXML/ExpertsList.fxml"));
-        s.getScene().setRoot(expertsList);
+    @FXML
+    private void onBackButtonClicked(ActionEvent event) throws Exception {
+        load("UserInfo", getStageFromEvent(event));
     }
 }
