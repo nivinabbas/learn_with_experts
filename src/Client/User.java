@@ -2,21 +2,25 @@ package Client;
 
 import javafx.scene.image.Image;
 
+import java.io.ByteArrayInputStream;
+import java.util.Base64;
+
 
 public class User {
     private final String role;
     private final String name;
-    private Image image;
+    private final Image image;
     private final String field;
     private final int id;
 
-    public User(int id, String name, String role, String field, String b64Image) {
+    public User(int id, String name, String role, String field, String encodedImage) {
         this.id = id;
         this.name = name;
         this.role = role;
         this.field = field;
-//        byte[] decodedImage = Base64.getDecoder().decode(b64Image);
-//        this.image = new Image(new ByteArrayInputStream(decodedImage));
+        System.out.println("enc: " + encodedImage);
+        byte[] decodedImage = Base64.getDecoder().decode(encodedImage);
+        this.image = new Image(new ByteArrayInputStream(decodedImage));
     }
 
     public String getName() {

@@ -13,7 +13,8 @@ public class UserProberties {
     public static int id;
     public static User currentContact;
     public static ArrayList<User> onlineUsers = new ArrayList<>();
-    private static ArrayList<Message> messages = new ArrayList<>();
+    private static final ArrayList<Message> messages = new ArrayList<>();
+    public static String encodedImage;
 
     public static void addMessage(User from, String txt) {
         System.out.println("adding message");
@@ -23,7 +24,7 @@ public class UserProberties {
         messages.add(message);
 
         if (ConversationController.singelton != null)
-        ConversationController.addMessage(txt);
+            ConversationController.addMessage(txt);
         else
             System.out.println("failed");
     }

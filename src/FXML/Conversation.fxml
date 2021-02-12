@@ -1,104 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
-  All rights reserved. Use is subject to license terms.
-
-  This file is available and licensed under the following license:
-
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions
-  are met:
-
-  - Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  - Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in
-    the documentation and/or other materials provided with the distribution.
-  - Neither the name of Oracle Corporation nor the names of its
-    contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConversationController">
-   <center>
-      <VBox fx:id="expertsVBox" alignment="TOP_CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="240.0" style="-fx-alignment: center; -fx-background-color: F0F0F0; -fx-border-color: #CCCCCC; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="450.0" prefWidth="500.0"
+            xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Controllers.ConversationController">
+   <children>
+      <Pane layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="238.0" style="-fx-spacing: 5; -fx-padding: 5;">
+            <VBox prefHeight="350.0" prefWidth="400.0">
                <children>
-                  <ImageView fx:id="contactImage" fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/unknown.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="contactNameLabel" contentDisplay="CENTER" prefHeight="18.0" prefWidth="134.0" text="Contact Name">
-                     <font>
-                        <Font size="15.0" />
-                     </font></Label>
-               </children>
-            </HBox>
-            <ScrollPane fx:id="scrollPane" prefHeight="288.0" prefWidth="238.0">
-               <content>
-                  <VBox fx:id="messagesVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="246.0" prefWidth="236.0" spacing="5.0" />
-               </content></ScrollPane>
-            <HBox prefHeight="28.0" prefWidth="275.0">
-               <children>
-                  <TextField fx:id="messageField" prefHeight="28.0" prefWidth="330.0" />
-                  <Button fx:id="sendButton" ellipsisString="&gt;" mnemonicParsing="false" onAction="#onSendButtonClicked" text="Button" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </center>
-   <left>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="80.0" BorderPane.alignment="CENTER" />
-   </left>
-   <right>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="80.0" BorderPane.alignment="CENTER" />
-   </right>
-   <bottom>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
-   </bottom>
-   <top>
-      <VBox prefHeight="80.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="364.0" style="-fx-spacing: 10;">
-               <children>
-                  <ImageView fx:id="imageMedium" fitHeight="60.0" fitWidth="65.0" pickOnBounds="true" />
-                  <VBox prefHeight="80.0" prefWidth="224.0" style="-fx-spacing: 4;">
+                  <HBox prefHeight="72.0" prefWidth="400.0" style="-fx-spacing: 8;">
                      <children>
-                        <Label fx:id="nameLabel" text="Name is shown here">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="roleLabel" style="-fx-border-color: orange; -fx-padding: 2px;" text="Novice/Expert" textFill="#ffca00">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
+                        <ImageView fx:id="contactImage" fitHeight="49.0" fitWidth="76.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                           <image>
+                              <Image url="@../images/user%20(4).png"/>
+                           </image>
+                        </ImageView>
+                        <VBox prefHeight="49.0" prefWidth="325.0">
+                           <children>
+                              <Label fx:id="contactName" prefHeight="31.0" prefWidth="169.0" text="Contact name"/>
+                              <Label fx:id="contactRoleField" text="Contact role and field"/>
+                           </children>
+                        </VBox>
                      </children>
-                  </VBox>
+                  </HBox>
+                  <ScrollPane prefHeight="322.0" prefWidth="400.0">
+                     <content>
+                        <VBox fx:id="messagesVBox" prefHeight="9.0" prefWidth="398.0"/>
+                     </content>
+                  </ScrollPane>
+                  <HBox prefHeight="37.0" prefWidth="400.0">
+                     <children>
+                        <TextField fx:id="messageTextField" onKeyReleased="#onTextFieldKeyPressed" prefHeight="37.0"
+                                   prefWidth="412.0"/>
+                        <Button fx:id="sendButton" mnemonicParsing="false" onAction="#onSendButtonClicked"
+                                prefHeight="37.0" prefWidth="149.0" text="Send"/>
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
+            </VBox>
          </children>
-      </VBox>
-   </top>
-</BorderPane>
+      </Pane>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="34.0"
+              prefWidth="49.0">
+         <graphic>
+            <ImageView fitHeight="54.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/left-arrow.png"/>
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

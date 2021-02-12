@@ -3,15 +3,24 @@ package Controllers;
 import Client.UserProberties;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class FieldsListController extends GeneralController {
     @FXML
+    private Label nameLabel;
+    @FXML
+    private Label userRoleLabel;
+    @FXML
+    private ImageView image;
+
+
+    @FXML
     protected void initialize() {
+        nameLabel.setText(UserProberties.name);
+        userRoleLabel.setText(UserProberties.role);
+        image.setImage(UserProberties.image);
     }
 
     @FXML
@@ -36,7 +45,7 @@ public class FieldsListController extends GeneralController {
 
     private void loadExpertsListWithField(String field, Stage window)  throws  Exception {
         UserProberties.field = field;
-        load("ExpertList", window);
+        load("ExpertsList", window);
     }
 
     @FXML

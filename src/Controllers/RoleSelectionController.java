@@ -34,4 +34,6 @@ public class RoleSelectionController extends GeneralController {
             System.out.println("Error loading fxml");
         }
     }
+
+
 }

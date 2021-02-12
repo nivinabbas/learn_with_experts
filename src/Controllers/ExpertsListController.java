@@ -6,34 +6,40 @@ import Client.UserProberties;
 import Client.UserService;
 import Helpers.CustomException;
 import javafx.concurrent.Service;
-import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ExpertsListController extends GeneralController {
     @FXML
-    private ImageView imageMedium;
+    private ImageView userImage;
     @FXML
     private Label nameLabel;
     @FXML
-    private Label roleLabel;
+    private Label userRoleLabel;
     @FXML
-    private Label expertListTitle;
-    @FXML
-    private VBox expertsVBox;
+    private VBox onlineUsersVBox;
+    private double cloneButtonPrefWidth;
+    private double cloneButtonPrefHeight;
+    private Node cloneButtonGraphic;
 
     @FXML
     protected void initialize() {
+        nameLabel.setText(UserProberties.name);
+        userRoleLabel.setText(UserProberties.role);
+        userImage.setImage(UserProberties.image);
+
+        onlineUsersVBox.getChildren().clear();
+
         try {
             ClientNetwork.connectToServer();
         } catch (Exception e) {
@@ -44,13 +50,7 @@ public class ExpertsListController extends GeneralController {
             }
         }
 
-        imageMedium.setImage(UserProberties.image);
-        nameLabel.setText(UserProberties.name);
-        roleLabel.setText(UserProberties.role);
-
         Service<String> ser = new UserService();
-
-        ConversationController.previousService = ser;
 
         ser.setOnSucceeded((WorkerStateEvent event) -> {
             String s = ser.getValue();
@@ -74,14 +74,25 @@ public class ExpertsListController extends GeneralController {
                 String userInfo = ClientNetwork.readFromServer();
 
                 String[] splittedUserInfo = userInfo.split(";FayezIbrahimNivin;");
-                User onlineUser = new User(Integer.parseInt(splittedUserInfo[0]), splittedUserInfo[1], splittedUserInfo[2], splittedUserInfo[3], "none");
+                User onlineUser = new User(Integer.parseInt(splittedUserInfo[0]), splittedUserInfo[1], splittedUserInfo[2], splittedUserInfo[3], splittedUserInfo[4]);
                 UserProberties.onlineUsers.add(onlineUser);
                 String oppositeRole = UserProberties.role == "Novice" ? "Expert" : "Novice";
 
                 if (onlineUser.getField().equals(UserProberties.field) && onlineUser.getRole().equals(oppositeRole)) {
-                    var vBoxChilds = expertsVBox.getChildren();
+                    var flowPaneChilds = onlineUsersVBox.getChildren();
 
                     Button onlineUserButton = new Button(onlineUser.getName());
+                    ImageView img = new ImageView(onlineUser.getImage());
+
+                    img.setFitHeight(28);
+                    img.setFitWidth(35);
+                    img.setStyle("-fx-padding: 8px 16px");
+                    onlineUserButton.setStyle("-fx-padding:8px 16px;");
+                    onlineUserButton.setMinWidth(168);
+                    onlineUserButton.setText(onlineUser.getName());
+                    onlineUserButton.setGraphic(img);
+                    onlineUserButton.setPrefHeight(cloneButtonPrefHeight);
+                    onlineUserButton.setPrefWidth(cloneButtonPrefWidth);
 
                     onlineUserButton.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
@@ -94,7 +105,7 @@ public class ExpertsListController extends GeneralController {
                             }
                         }
                     });
-                    vBoxChilds.add(onlineUserButton);
+                    flowPaneChilds.add(onlineUserButton);
                 }
             }
 
@@ -116,14 +127,20 @@ public class ExpertsListController extends GeneralController {
         }
     }
 
-    private void startConversationWith(User u){
-        try{
-        UserProberties.currentContact = u;
+    @FXML
+    private void onBackButtonClicked(ActionEvent event) {
 
-        System.out.println("you are: " + UserProberties.name + ", id:" + UserProberties.id);
-        System.out.println("you are connecting with " + u.toString());
-        load("Conversation",(Stage) nameLabel.getScene().getWindow());}
-        catch (Exception e){
+    }
+
+    private void startConversationWith(User u) {
+        try {
+            UserProberties.currentContact = u;
+
+            System.out.println("you are: " + UserProberties.name + ", id:" + UserProberties.id);
+            System.out.println("you are connecting with " + u.toString());
+            load("Conversation", (Stage) nameLabel.getScene().getWindow());
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
