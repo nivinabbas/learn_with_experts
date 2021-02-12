@@ -13,10 +13,13 @@ public class ClientNetwork {
 
     public static void connectToServer() throws Exception {
         soc = new Socket("localHost", 6810);
+
         System.out.println(soc.isConnected());
+
         readSocket = new BufferedReader(new InputStreamReader(soc.getInputStream()));
         printSocket = new PrintWriter(new OutputStreamWriter(soc.getOutputStream()), true);
         printSocket.println(String.join(";FayezIbrahimNivin;", UserProberties.name, UserProberties.role, UserProberties.field, "none"));
+
         UserProberties.id = Integer.parseInt(readSocket.readLine());
         System.out.println("connected to the server!!, my id is " + UserProberties.id);
     }
