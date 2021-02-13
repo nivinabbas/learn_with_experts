@@ -2,11 +2,21 @@ package Client;
 
 public class Message {
     private User from;
+    private User to;
     private String text;
 
-    public Message(User from, String text) {
+    public Message(User from, User to, String text) {
         this.from = from;
         this.text = text;
+        this.to = to;
+    }
+
+    public User getTo() {
+        return to;
+    }
+
+    public void setTo(User to) {
+        this.to = to;
     }
 
     public User getFrom() {

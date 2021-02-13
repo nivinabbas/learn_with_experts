@@ -20,7 +20,8 @@ public class MainApp extends Application {
 
         window.setTitle("Learn With Experts");
         window.setWidth(400);
-        window.setHeight(600);
+        window.setHeight(630);
+        window.setResizable(false);
         window.setX(200);
         window.setY(100);
 

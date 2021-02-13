@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 public class RoleSelectionController extends GeneralController {
     @FXML
     protected void initialize() {
+
     }
 
     @FXML

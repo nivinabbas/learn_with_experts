@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="600.0" prefWidth="400.0" stylesheets="@../stylesheets/imageBackground.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConversationController">
    <children>
-      <Pane layoutX="16.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="104.0" prefWidth="386.0">
+      <Pane layoutX="8.0" layoutY="48.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="78.0" prefWidth="380.0">
          <children>
-            <VBox layoutX="31.0" layoutY="41.0" prefHeight="462.0" prefWidth="273.0">
+            <VBox layoutX="6.0" layoutY="8.0" prefHeight="537.0" prefWidth="376.0">
                <children>
                   <HBox prefHeight="58.0" prefWidth="345.0" style="-fx-spacing: 8;">
                      <children>
-                        <ImageView fx:id="contactImage" fitHeight="50.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/user%20(4).png" />
-                           </image>
-                        </ImageView>
+                        <Ellipse fx:id="contactImageEllipse" fill="DODGERBLUE" radiusX="36.0" radiusY="29.0"
+                                 stroke="BLACK" strokeType="INSIDE"/>
                         <VBox prefHeight="49.0" prefWidth="325.0">
                            <children>
                               <Label fx:id="contactName" prefHeight="36.0" prefWidth="169.0" text="Contact name">
                                  <font>
-                                    <Font name="Times New Roman Bold" size="14.0" />
-                                 </font></Label>
+                                    <Font name="System Bold" size="15.0"/>
+                                 </font>
+                              </Label>
                               <Label fx:id="contactRoleField" text="Contact role and field">
                                  <font>
-                                    <Font name="Times New Roman Bold" size="14.0" />
-                                 </font></Label>
+                                    <Font name="Times New Roman Bold" size="14.0"/>
+                                 </font>
+                              </Label>
                            </children>
                         </VBox>
                      </children>
                   </HBox>
-                  <ScrollPane prefHeight="354.0" prefWidth="273.0">
+                  <ScrollPane prefHeight="446.0" prefWidth="376.0">
                      <content>
-                        <VBox fx:id="messagesVBox" prefHeight="13.0" prefWidth="271.0" />
+                        <VBox fx:id="messagesVBox" prefHeight="13.0" prefWidth="271.0"/>
                      </content>
                      <VBox.margin>
-                        <Insets top="2.0" />
+                        <Insets top="2.0"/>
                      </VBox.margin>
                   </ScrollPane>
                   <HBox prefHeight="37.0" prefWidth="400.0">

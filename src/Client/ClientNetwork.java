@@ -12,7 +12,11 @@ public class ClientNetwork {
     public static BufferedReader readSocket;
 
     public static void connectToServer() throws Exception {
-        soc = new Socket("localHost", 6810);
+        try {
+            soc = new Socket("20.52.4.81", 6810);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         System.out.println(soc.isConnected());
 
@@ -24,9 +28,15 @@ public class ClientNetwork {
         System.out.println("connected to the server!!, my id is " + UserProberties.id);
     }
 
+    public static boolean isConnected() {
+        return soc != null;
+    }
+
     public static void disconnect() throws Exception {
-        if (soc != null)
+        if (isConnected()) {
             soc.close();
+            soc = null;
+        }
     }
 
     public static void sendToServer(String s) {

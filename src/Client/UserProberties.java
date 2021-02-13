@@ -15,18 +15,27 @@ public class UserProberties {
     public static ArrayList<User> onlineUsers = new ArrayList<>();
     private static final ArrayList<Message> messages = new ArrayList<>();
     public static String encodedImage;
+    public static UserService userService;
 
-    public static void addMessage(User from, String txt) {
+    public static void addMessage(User from, User to, String txt) {
         System.out.println("adding message");
 
-        Message message = new Message(from, txt);
+        Message message = new Message(from, to, txt);
 
         messages.add(message);
-
-        if (ConversationController.singelton != null)
+        if (currentContact == null) {
+            System.out.println("Current contact is null, returning");
+            return;
+        }
+        System.out.println("checking if matching " + from.getId() + " and " + currentContact.getId());
+        if (ConversationController.singelton != null && (from.getId() == currentContact.getId() || to.getId() == currentContact.getId())) {
             ConversationController.addMessage(txt);
-        else
-            System.out.println("failed");
+        } else
+            System.out.println("failed to add message");
+    }
+
+    public static User getCurrentUser() {
+        return new User(id, name, role, field, encodedImage);
     }
 
     public static ArrayList<Message> getMessages() {

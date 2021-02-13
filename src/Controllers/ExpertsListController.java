@@ -5,7 +5,6 @@ import Client.User;
 import Client.UserProberties;
 import Client.UserService;
 import Helpers.CustomException;
-import javafx.concurrent.Service;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,14 +13,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Ellipse;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class ExpertsListController extends GeneralController {
     @FXML
-    private ImageView userImage;
+    private Ellipse userImageEllipse;
     @FXML
     private Label nameLabel;
     @FXML
@@ -36,12 +40,14 @@ public class ExpertsListController extends GeneralController {
     protected void initialize() {
         nameLabel.setText(UserProberties.name);
         userRoleLabel.setText(UserProberties.role);
-        userImage.setImage(UserProberties.image);
+        userImageEllipse.setFill(new ImagePattern(UserProberties.image));
+        userImageEllipse.setEffect(new DropShadow(+25d, 0d, +2d, Color.DARKSEAGREEN));
 
         onlineUsersVBox.getChildren().clear();
 
         try {
-            ClientNetwork.connectToServer();
+            if (!ClientNetwork.isConnected())
+                ClientNetwork.connectToServer();
         } catch (Exception e) {
             try {
                 throw new CustomException("Error connecting to server");
@@ -50,73 +56,108 @@ public class ExpertsListController extends GeneralController {
             }
         }
 
-        Service<String> ser = new UserService();
+        for (User user : UserProberties.onlineUsers) {
+            addOnlineUserIfPossible(user);
+        }
 
-        ser.setOnSucceeded((WorkerStateEvent event) -> {
-            String s = ser.getValue();
-            System.out.println("received message!! " + s);
-            String[] splittedString = s.split(";FayezIbrahimNivin;");
+        if (UserProberties.userService == null) {
+            UserProberties.userService = new UserService();
 
-            if (s.startsWith("message")) {
-                System.out.println("received message");
-                String[] splittedS = s.split(";");
-                int fromId = Integer.parseInt(splittedS[1]);
-                User from = null;
+            UserProberties.userService.setOnSucceeded((WorkerStateEvent event) -> {
+                String reddenValue = UserProberties.userService.getValue();
 
-                for (User u:UserProberties.onlineUsers) {
-                    if (u.getId() == fromId)
-                        from = u;
+                if (reddenValue == null) {
+                    UserProberties.userService = null;
+                    UserProberties.onlineUsers = new ArrayList<>();
+                    return;
                 }
 
-                if (from != null)
-                    UserProberties.addMessage(from, splittedS[2]);
-            } else if (splittedString[0].equals("online")) {
-                String userInfo = ClientNetwork.readFromServer();
+                System.out.println("received message!! " + reddenValue);
+                String[] splittedString = reddenValue.split(";FayezIbrahimNivin;");
 
-                String[] splittedUserInfo = userInfo.split(";FayezIbrahimNivin;");
-                User onlineUser = new User(Integer.parseInt(splittedUserInfo[0]), splittedUserInfo[1], splittedUserInfo[2], splittedUserInfo[3], splittedUserInfo[4]);
-                UserProberties.onlineUsers.add(onlineUser);
-                String oppositeRole = UserProberties.role == "Novice" ? "Expert" : "Novice";
+                if (reddenValue.startsWith("message")) {
+                    System.out.println("received message");
+                    String[] splittedS = reddenValue.split(";");
+                    int fromId = Integer.parseInt(splittedS[1]);
+                    User from = null;
 
-                if (onlineUser.getField().equals(UserProberties.field) && onlineUser.getRole().equals(oppositeRole)) {
-                    var flowPaneChilds = onlineUsersVBox.getChildren();
+                    for (User u : UserProberties.onlineUsers) {
+                        if (u.getId() == fromId)
+                            from = u;
+                    }
 
-                    Button onlineUserButton = new Button(onlineUser.getName());
-                    ImageView img = new ImageView(onlineUser.getImage());
+                    if (from != null)
+                        UserProberties.addMessage(from, UserProberties.getCurrentUser(), splittedS[2]);
+                } else if (splittedString[0].equals("online")) {
+                    String userInfo = ClientNetwork.readFromServer();
 
-                    img.setFitHeight(28);
-                    img.setFitWidth(35);
-                    onlineUserButton.setStyle("-fx-margin: 166px");
-                    img.setStyle("-fx-padding: 8px 16px");
-                    onlineUserButton.setStyle("-fx-padding:30px 16px;");
-                    onlineUserButton.setMinWidth(168);
-                    onlineUserButton.setText(onlineUser.getName());
-                    onlineUserButton.setGraphic(img);
-                    onlineUserButton.setPrefHeight(cloneButtonPrefHeight);
-                    onlineUserButton.setPrefWidth(cloneButtonPrefWidth);
+                    String[] splittedUserInfo = userInfo.split(";FayezIbrahimNivin;");
+                    User onlineUser = new User(Integer.parseInt(splittedUserInfo[0]), splittedUserInfo[1], splittedUserInfo[2], splittedUserInfo[3], splittedUserInfo[4]);
+                    UserProberties.onlineUsers.add(onlineUser);
+                    addOnlineUserIfPossible(onlineUser);
+                } else if (splittedString[0].startsWith("offline")) {
+                    int offlineUserId = Integer.parseInt(splittedString[1]);
+                    User offlineUser = null;
 
-                    onlineUserButton.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            try {
-                                UserProberties.currentContact = onlineUser;
-                                loadConversation(getStageFromEvent(event));
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
+                    for (User u : UserProberties.onlineUsers) {
+                        if (u.getId() == offlineUserId)
+                            offlineUser = u;
+                    }
+
+                    if (offlineUser != null) {
+                        System.out.println("offline user " + UserProberties.onlineUsers.remove(offlineUser));
+                    }
+
+                    if (onlineUsersVBox != null) {
+                        System.out.println("offline user removed from vbox");
+                        onlineUsersVBox.getChildren().clear();
+                        for (User u : UserProberties.onlineUsers) {
+                            addOnlineUserIfPossible(u);
                         }
-                    });
-                    flowPaneChilds.add(onlineUserButton);
+                    } else {
+                        System.out.println("vbox is null");
+                    }
                 }
-            }
+                UserProberties.userService.restart();
+            });
 
-            System.out.println("reading again.....");
-            ser.restart();
-        });
-        ser.start();
+            UserProberties.userService.start();
+        }
 
     }
 
+    private void addOnlineUserIfPossible(User user) {
+        String oppositeRole = UserProberties.role == "Novice" ? "Expert" : "Novice";
+        if (onlineUsersVBox != null && user.getField().equals(UserProberties.field) && user.getRole().equals(oppositeRole)) {
+            var flowPaneChilds = onlineUsersVBox.getChildren();
+
+            Button onlineUserButton = new Button(user.getName());
+            Ellipse el = new Ellipse(0, 0, 23, 20);
+            el.setFill(new ImagePattern(user.getImage()));
+
+            onlineUserButton.setStyle("-fx-margin: 166px");
+            onlineUserButton.setStyle("-fx-padding:30px 16px;");
+            onlineUserButton.setMinWidth(168);
+            onlineUserButton.setText(user.getName());
+            onlineUserButton.setGraphic(el);
+            onlineUserButton.setPrefHeight(cloneButtonPrefHeight);
+            onlineUserButton.setPrefWidth(cloneButtonPrefWidth);
+
+            onlineUserButton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    try {
+                        UserProberties.currentContact = user;
+                        loadConversation(getStageFromEvent(event));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            flowPaneChilds.add(onlineUserButton);
+        }
+    }
 
     private void loadConversation(Stage s) {
         try {
@@ -129,8 +170,9 @@ public class ExpertsListController extends GeneralController {
     }
 
     @FXML
-    private void onBackButtonClicked(ActionEvent event) {
-
+    private void onBackButtonClicked(ActionEvent event) throws Exception {
+        ClientNetwork.disconnect();
+        load("FieldsList", getStageFromEvent(event));
     }
 
     private void startConversationWith(User u) {
