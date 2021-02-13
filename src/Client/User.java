@@ -3,6 +3,7 @@ package Client;
 import javafx.scene.image.Image;
 
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
 import java.util.Base64;
 
 
@@ -12,6 +13,7 @@ public class User {
     private final Image image;
     private final String field;
     private final int id;
+    private ArrayList<Message> unSeenMessages = new ArrayList<>();
 
     public User(int id, String name, String role, String field, String encodedImage) {
         this.id = id;
@@ -21,6 +23,18 @@ public class User {
         System.out.println("enc: " + encodedImage);
         byte[] decodedImage = Base64.getDecoder().decode(encodedImage);
         this.image = new Image(new ByteArrayInputStream(decodedImage));
+    }
+
+    public boolean hasUnseenMessages() {
+        return unSeenMessages.size() > 0;
+    }
+
+    public void addUnseenMessage(Message message) {
+        unSeenMessages.add(message);
+    }
+
+    public void removeAllUnseenMessages() {
+        unSeenMessages = new ArrayList<>();
     }
 
     public String getName() {
@@ -47,6 +61,8 @@ public class User {
     public int hashCode() {
         return this.id;
     }
+
+
 
     @Override
     public boolean equals(Object o) {

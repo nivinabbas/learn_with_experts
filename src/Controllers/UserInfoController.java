@@ -4,6 +4,7 @@ import Client.UserProberties;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -18,7 +19,10 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.net.URL;
 import java.nio.file.Files;
 import java.util.Base64;
 import java.util.Optional;
@@ -89,19 +93,33 @@ public class UserInfoController extends GeneralController {
 
     @FXML
     private void onBackButtonClicked(ActionEvent event) throws Exception {
-
+        load("RoleSelection", getStageFromEvent(event) );
     }
 
     @FXML
-    private void onLinkButtonClicked(ActionEvent event) {
+    private void onLinkButtonClicked(ActionEvent event) throws Exception {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Image from link");
         dialog.setHeaderText("Get image from link");
         dialog.setContentText("Enter the link here:");
-
         Optional<String> link = dialog.showAndWait();
         if (link.isPresent()) {
-            System.out.println(link.get());
+            URL url = new URL(link.get());
+            if (url.getContent().getClass().getName().contains("Image")) {
+                BufferedImage img = ImageIO.read(url);
+                try {
+                    imageFile = new File("pic.jpg");
+                    ImageIO.write(img, "jpg", imageFile);
+                } catch (Exception e) {
+                    try {
+                        imageFile = new File("pic.png");
+                        ImageIO.write(img, "png", imageFile);
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                userImageEllipse.setFill(new ImagePattern(new Image(imageFile.toURI().toString())));
+            }
         }
     }
 }

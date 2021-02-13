@@ -31,11 +31,11 @@ public class UserProberties {
         if (ConversationController.singelton != null && (from.getId() == currentContact.getId() || to.getId() == currentContact.getId())) {
             if(txt.length()>34)
                 txt+="\n";
-            ConversationController.addMessage(txt);
-
-
-        } else
+            ConversationController.addMessage(txt, from);
+        } else {
+            from.addUnseenMessage(message);
             System.out.println("failed to add message");
+        }
     }
 
     public static User getCurrentUser() {

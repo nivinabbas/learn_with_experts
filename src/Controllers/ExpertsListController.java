@@ -1,16 +1,12 @@
 package Controllers;
 
-import Client.ClientNetwork;
-import Client.User;
-import Client.UserProberties;
-import Client.UserService;
+import Client.*;
 import Helpers.CustomException;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
@@ -32,9 +28,6 @@ public class ExpertsListController extends GeneralController {
     private Label userRoleLabel;
     @FXML
     private VBox onlineUsersVBox;
-    private double cloneButtonPrefWidth;
-    private double cloneButtonPrefHeight;
-    private Node cloneButtonGraphic;
 
     @FXML
     protected void initialize() {
@@ -140,13 +133,19 @@ public class ExpertsListController extends GeneralController {
             onlineUserButton.setMinWidth(168);
             onlineUserButton.setText(user.getName());
             onlineUserButton.setGraphic(el);
-            onlineUserButton.setPrefHeight(cloneButtonPrefHeight);
-            onlineUserButton.setPrefWidth(cloneButtonPrefWidth);
+
+            boolean hasUnseen = false;
+
+            if (user.hasUnseenMessages()) {
+                onlineUserButton.setText(onlineUserButton.getText() + "\n" + "new messages");
+            }
+
 
             onlineUserButton.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
                     try {
+                        user.removeAllUnseenMessages();
                         UserProberties.currentContact = user;
                         loadConversation(getStageFromEvent(event));
                     } catch (Exception e) {

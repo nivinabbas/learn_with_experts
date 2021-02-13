@@ -5,10 +5,14 @@ import Client.User;
 import Client.UserProberties;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Ellipse;
@@ -26,6 +30,7 @@ public class ConversationController extends GeneralController {
     @FXML
     private Ellipse contactImageEllipse;
 
+
     public static ConversationController singelton;
 
     @FXML
@@ -38,17 +43,27 @@ public class ConversationController extends GeneralController {
 
         for (var message : UserProberties.getMessages()) {
             if ((message.getFrom().getId() == UserProberties.currentContact.getId()) || (message.getTo().getId() == UserProberties.currentContact.getId()))
-                addMessage(message.getText());
+                addMessage(message.getText(), message.getFrom());
         }
     }
 
-    public static void addMessage(String text) {
+    public static void addMessage(String text, User from) {
+        try {
+            AnchorPane parent = FXMLLoader.load(singelton.getClass().getResource("../FXML/MessageLeft.fxml"));
+            HBox messageHBox = (HBox) parent.getChildren().get(0);
 
-        Label messageLabel = new Label(text);
-        messageLabel.setEllipsisString("");
-        messageLabel.setPrefHeight(45);
-        singelton.messagesVBox.getChildren().add(messageLabel);
-        singelton.messagesVBox.setPrefHeight(singelton.messagesVBox.getPrefHeight() + 70);
+
+            messageHBox.setAlignment(!from.getRole().equals(UserProberties.role)? Pos.BASELINE_LEFT:Pos.BASELINE_RIGHT);
+            Label messageLabel = (Label) messageHBox.getChildren().get(0);
+            messageLabel.setText(text);
+            messageLabel.setEllipsisString("");
+            messageLabel.setId(!from.getRole().equals(UserProberties.role)? "messageLeft":"messageRight");
+            messageLabel.setAlignment(from.getRole().equals(UserProberties.role)? Pos.TOP_LEFT:Pos.TOP_RIGHT);
+
+            singelton.messagesVBox.getChildren().add(messageHBox);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

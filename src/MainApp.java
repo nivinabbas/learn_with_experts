@@ -19,7 +19,7 @@ public class MainApp extends Application {
         primaryStage = window;
 
         window.setTitle("Learn With Experts");
-        window.setWidth(400);
+        window.setWidth(406);
         window.setHeight(630);
         window.setResizable(false);
         window.setX(200);

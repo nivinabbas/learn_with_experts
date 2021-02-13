@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="412.0" prefWidth="952.0" stylesheets="@../stylesheets/messageConversation.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox fx:id="messageHBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="368.0">
+         <children>
+            <Label id="messageLeft" alignment="TOP_RIGHT" blendMode="SRC_ATOP" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="256.0" style="-fx-background-size: 256px 50px; -fx-background-repeat: no-repeat; -fx-padding: 8;" stylesheets="@../stylesheets/messageConversation.css" text="sadasdsaddsa">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

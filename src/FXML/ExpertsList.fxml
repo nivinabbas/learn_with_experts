@@ -44,39 +44,41 @@
 <?import javafx.scene.text.Font?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" stylesheets="@../stylesheets/imageBackground.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ExpertsListController">
    <children>
-      <VBox fx:id="onlineUsersVBox" alignment="CENTER" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="400.0" style="-fx-alignment: center;" />
-      <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="27.0"
-              prefWidth="45.0">
+      <VBox fx:id="onlineUsersVBox" alignment="CENTER" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="400.0" style="-fx-alignment: center;" />
+      <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="27.0" prefWidth="45.0">
          <graphic>
             <ImageView fitHeight="19.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/left-arrow.png"/>
+                  <Image url="@../images/left-arrow.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
       <Group layoutX="285.0" layoutY="12.0" />
-      <HBox layoutX="181.0" layoutY="11.0" prefHeight="61.0" prefWidth="209.0"
-            style="-fx-background-color: #fafafa95; -fx-padding: 8; -fx-spacing: 16;">
+      <HBox layoutX="181.0" layoutY="11.0" prefHeight="61.0" prefWidth="209.0" style="-fx-background-color: #fafafa95; -fx-padding: 8; -fx-spacing: 16;">
          <children>
-            <Ellipse fx:id="userImageEllipse" fill="DODGERBLUE" radiusX="33.0" radiusY="30.0" stroke="BLACK"
-                     strokeType="INSIDE"/>
+            <Ellipse fx:id="userImageEllipse" fill="DODGERBLUE" radiusX="33.0" radiusY="30.0" stroke="BLACK" strokeType="INSIDE" />
             <VBox prefHeight="54.0" prefWidth="149.0">
                <children>
                   <Label fx:id="nameLabel" alignment="BOTTOM_LEFT" prefHeight="24.0" prefWidth="128.0" text="Name">
                      <font>
-                        <Font size="15.0"/>
+                        <Font size="15.0" />
                      </font>
                   </Label>
                   <Label fx:id="userRoleLabel" prefHeight="33.0" prefWidth="109.0" text="Type of User">
                      <font>
-                        <Font name="Times New Roman Bold" size="14.0"/>
+                        <Font name="Times New Roman Bold" size="14.0" />
                      </font>
                   </Label>
                </children>
             </VBox>
          </children>
       </HBox>
+      <Label layoutX="121.0" layoutY="99.0" text="Online Users">
+         <font>
+            <Font name="Liberation Mono Bold" size="22.0" />
+         </font>
+      </Label>
    </children>
   
 

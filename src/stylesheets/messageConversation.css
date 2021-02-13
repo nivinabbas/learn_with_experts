@@ -1,0 +1,7 @@
+#messageLeft {
+   -fx-background-image:url('messageLeft.png');
+}
+
+#messageRight {
+    -fx-background-image:url('messageRight.png');
+}
