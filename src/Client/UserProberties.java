@@ -29,7 +29,11 @@ public class UserProberties {
         }
         System.out.println("checking if matching " + from.getId() + " and " + currentContact.getId());
         if (ConversationController.singelton != null && (from.getId() == currentContact.getId() || to.getId() == currentContact.getId())) {
+            if(txt.length()>34)
+                txt+="\n";
             ConversationController.addMessage(txt);
+
+
         } else
             System.out.println("failed to add message");
     }

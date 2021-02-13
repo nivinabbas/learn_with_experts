@@ -43,10 +43,12 @@ public class ConversationController extends GeneralController {
     }
 
     public static void addMessage(String text) {
-        Label messageButton = new Label(text);
-        messageButton.setPrefHeight(45);
-        singelton.messagesVBox.getChildren().add(messageButton);
-        singelton.messagesVBox.setPrefHeight(singelton.messagesVBox.getPrefHeight() + 50);
+
+        Label messageLabel = new Label(text);
+        messageLabel.setEllipsisString("");
+        messageLabel.setPrefHeight(45);
+        singelton.messagesVBox.getChildren().add(messageLabel);
+        singelton.messagesVBox.setPrefHeight(singelton.messagesVBox.getPrefHeight() + 70);
     }
 
     @FXML
