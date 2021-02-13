@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" stylesheets="@../stylesheets/imageBackground.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserInfoController">
+   <children>
+      <VBox alignment="CENTER" layoutX="14.0" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="380.0" style="-fx-background-color: white; -fx-spacing: 16;">
+         <children>
+            <HBox alignment="CENTER" prefHeight="22.0" prefWidth="380.0">
+               <children>
+                  <Label text="Enter your name:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="*" textFill="#da0303">
+                     <font>
+                        <Font name="Times New Roman" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <TextField fx:id="nameTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="297.0" />
+            <Label text="Select image:">
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Label>
+            <Ellipse fx:id="userImageEllipse" fill="DODGERBLUE" radiusX="77.0" radiusY="65.0" stroke="BLACK" strokeType="INSIDE" />
+            <HBox alignment="CENTER" prefHeight="64.0" prefWidth="380.0" style="-fx-spacing: 16;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onBrowseButtonClicked" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: #8db3f0;" text="Browse">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/browsing.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                <Button mnemonicParsing="false" onAction="#onLinkButtonClicked" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: #8db3f0;" text="Link">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/link.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></HBox>
+          <Button mnemonicParsing="false" onAction="#onGoButtonClicked" prefHeight="47.0" prefWidth="90.0" style="-fx-background-color: #3ed696;" text="Go">
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+            <Label fx:id="errorMessageLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="484.0" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="25.0" prefHeight="47.0" prefWidth="380.0" text="Fill your info" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

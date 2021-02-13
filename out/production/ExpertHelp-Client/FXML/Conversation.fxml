@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" stylesheets="@../stylesheets/imageBackground.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConversationController">
+   <children>
+      <Pane layoutX="8.0" layoutY="48.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="380.0">
+         <children>
+            <VBox layoutX="6.0" layoutY="8.0" prefHeight="537.0" prefWidth="376.0">
+               <children>
+                  <HBox prefHeight="58.0" prefWidth="345.0" style="-fx-spacing: 8;">
+                     <children>
+                        <Ellipse fx:id="contactImageEllipse" fill="DODGERBLUE" radiusX="36.0" radiusY="29.0" stroke="BLACK" strokeType="INSIDE" />
+                        <VBox prefHeight="49.0" prefWidth="325.0">
+                           <children>
+                              <Label fx:id="contactName" prefHeight="36.0" prefWidth="169.0" text="Contact name">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="contactRoleField" text="Contact role and field">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <ScrollPane prefHeight="446.0" prefWidth="376.0">
+                     <content>
+                        <VBox fx:id="messagesVBox" prefHeight="13.0" prefWidth="271.0" />
+                     </content>
+                     <VBox.margin>
+                        <Insets top="2.0" />
+                     </VBox.margin>
+                  </ScrollPane>
+                  <HBox prefHeight="37.0" prefWidth="400.0">
+                     <children>
+                        <TextField fx:id="messageTextField" onKeyReleased="#onTextFieldKeyPressed" prefHeight="59.0" prefWidth="281.0" />
+                        <Button fx:id="sendButton" mnemonicParsing="false" onAction="#onSendButtonClicked" prefHeight="37.0" prefWidth="149.0" text="Send" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children></Pane>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="34.0" prefWidth="49.0">
+         <graphic>
+            <ImageView fitHeight="54.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/left-arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
