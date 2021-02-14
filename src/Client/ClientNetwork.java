@@ -19,7 +19,6 @@ public class ClientNetwork {
         }
 
         System.out.println(soc.isConnected());
-
         readSocket = new BufferedReader(new InputStreamReader(soc.getInputStream()));
         printSocket = new PrintWriter(new OutputStreamWriter(soc.getOutputStream()), true);
         printSocket.println(String.join(";FayezIbrahimNivin;", UserProberties.name, UserProberties.role, UserProberties.field, UserProberties.encodedImage));

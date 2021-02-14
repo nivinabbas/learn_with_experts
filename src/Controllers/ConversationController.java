@@ -30,7 +30,7 @@ public class ConversationController extends GeneralController {
     @FXML
     private Ellipse contactImageEllipse;
 
-
+    // Using the known singelton pattern
     public static ConversationController singelton;
 
     @FXML

@@ -138,7 +138,7 @@
                   </Button>
                </children>
             </FlowPane>
-            <Button layoutX="14.0" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="27.0" prefWidth="45.0">
+            <Button layoutX="14.0" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="27.0" prefWidth="45.0" style="-fx-background-color: #51c2d5;">
                <graphic>
                   <ImageView fitHeight="19.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>

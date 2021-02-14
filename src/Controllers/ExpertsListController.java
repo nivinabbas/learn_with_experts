@@ -1,6 +1,9 @@
 package Controllers;
 
-import Client.*;
+import Client.ClientNetwork;
+import Client.User;
+import Client.UserProberties;
+import Client.UserService;
 import Helpers.CustomException;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
@@ -69,6 +72,7 @@ public class ExpertsListController extends GeneralController {
                 String[] splittedString = reddenValue.split(";FayezIbrahimNivin;");
 
                 if (reddenValue.startsWith("message")) {
+                    // received a message from someone
                     System.out.println("received message");
                     String[] splittedS = reddenValue.split(";");
                     int fromId = Integer.parseInt(splittedS[1]);
@@ -82,6 +86,7 @@ public class ExpertsListController extends GeneralController {
                     if (from != null)
                         UserProberties.addMessage(from, UserProberties.getCurrentUser(), splittedS[2]);
                 } else if (splittedString[0].equals("online")) {
+                    // some new person is online ========> add him
                     String userInfo = ClientNetwork.readFromServer();
 
                     String[] splittedUserInfo = userInfo.split(";FayezIbrahimNivin;");
@@ -89,6 +94,7 @@ public class ExpertsListController extends GeneralController {
                     UserProberties.onlineUsers.add(onlineUser);
                     addOnlineUserIfPossible(onlineUser);
                 } else if (splittedString[0].startsWith("offline")) {
+                    // someone disconnected ========> remove him
                     int offlineUserId = Integer.parseInt(splittedString[1]);
                     User offlineUser = null;
 
