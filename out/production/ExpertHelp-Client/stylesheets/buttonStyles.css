@@ -1,15 +1,15 @@
-.button {
+.button , #btn {
     -fx-border-color: transparent;
     -fx-border-width: 2.5px;
     -fx-padding: 0;
     -fx-background-color:  #ececec;
 }
 
-.button:hover {
+.button:hover, #btn:hover {
     -fx-border-color:  #4d94ff;
 }
 
-.button:pressed {
+.button:pressed, #btn:pressed {
     -fx-background-color: #4d94ff !important;
 }
 

@@ -3,8 +3,11 @@ import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+
+import java.io.File;
 
 public class MainApp extends Application {
     public static Stage primaryStage;
@@ -24,8 +27,6 @@ public class MainApp extends Application {
         window.setResizable(false);
         window.setX(200);
         window.setY(100);
-
-
         Scene roleSelection = new Scene(FXMLLoader.load(getClass().getResource("FXML/RoleSelection.fxml")));
 
         window.setOnCloseRequest(new EventHandler<WindowEvent>() {

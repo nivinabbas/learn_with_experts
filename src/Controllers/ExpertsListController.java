@@ -125,14 +125,15 @@ public class ExpertsListController extends GeneralController {
             var flowPaneChilds = onlineUsersVBox.getChildren();
 
             Button onlineUserButton = new Button(user.getName());
-            Ellipse el = new Ellipse(0, 0, 23, 20);
+            Ellipse el = new Ellipse(0, 0, 33, 30);
             el.setFill(new ImagePattern(user.getImage()));
 
-            onlineUserButton.setStyle("-fx-margin: 166px");
-            onlineUserButton.setStyle("-fx-padding:30px 16px;");
-            onlineUserButton.setMinWidth(168);
+            onlineUserButton.setStyle("-fx-padding:16px;");
+            onlineUserButton.setMinWidth(200);
             onlineUserButton.setText(user.getName());
             onlineUserButton.setGraphic(el);
+            onlineUserButton.getStylesheets().add("stylesheets/buttonStyles.css");
+            onlineUserButton.setId("btn");
 
             boolean hasUnseen = false;
 

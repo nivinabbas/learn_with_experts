@@ -160,7 +160,7 @@
             <Ellipse fx:id="userImageEllipse" fill="DODGERBLUE" radiusX="33.0" radiusY="30.0" stroke="BLACK" strokeType="INSIDE" />
             <VBox prefHeight="54.0" prefWidth="149.0">
                <children>
-                  <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="24.0" prefWidth="128.0" text="Username access">
+                  <Label fx:id="nameLabel" prefHeight="24.0" prefWidth="128.0" text="Username access">
                      <font>
                         <Font size="15.0" />
                      </font>
