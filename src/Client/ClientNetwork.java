@@ -55,38 +55,4 @@ public class ClientNetwork {
         }
         return null;
     }
-
-    public static void readOnlineUsers() {
-        printSocket.println("GET_ONLINE_USERS");
-        System.out.println("getting online users from server....");
-        try {
-            String onlineUsersStr = readSocket.readLine();
-
-            String[] x = onlineUsersStr.split(";user_seperator;");
-            System.out.println("length is " + x.length);
-
-
-            if (onlineUsersStr != null) {
-                for (String str : onlineUsersStr.split(";user_seperator;")) {
-                    String[] userInfo = str.split(";FayezIbrahimNivin;");
-                    User user = new User(Integer.parseInt(userInfo[0]), userInfo[1], userInfo[2], userInfo[3], userInfo[4]);
-                    String oppositeRole = UserProberties.role.equals("Novice") ? "Expert" : "Novice";
-
-                    boolean doesExist = UserProberties.onlineUsers.contains(user);
-                    boolean isOppositeRoles = user.getRole().equals(oppositeRole);
-                    boolean isSameField = user.getField().equals(UserProberties.field);
-
-                    System.out.println("str: " + str);
-
-                    if (!doesExist && isOppositeRoles && isSameField)
-                        UserProberties.onlineUsers.add(user);
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error reading online users from server");
-        }
-
-    }
-
 }
