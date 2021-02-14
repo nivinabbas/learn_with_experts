@@ -11,7 +11,7 @@ Fayez Nazzal, Ibrahim Amerm, Nivin Abbas.
 3) Microsoft Azure for students: to run the server on the cloud
 4) CSS: stylesheets..
 5) Java Socket: for connecting to server
-6) Java URL: for adding images from lin
+6) Java URL: for adding images from link
 7) Java Streams: for reading from and writing to server
 8) Java Base64: for encoding images to base64 string to be sent easily to server, and for decoding it to a normal image.
 
